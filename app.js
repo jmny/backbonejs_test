@@ -1,12 +1,30 @@
-/* 
+/*
  * TODO :
- * - slider :       un curseur modifiable qui modifie le modele de la valeur courante
- *                  et emet un evenement
- *                  
- * - logger :       stoque et affiche l'historique des valeurs avec la date de modification
- * 
- * - last_value :   affiche la dernière valeur choisi   
+ * - mettre une collection json a dispo, ainsi que le model et la coleciton bjs associé
+ * - associer la collection à la vue et l'afficher
+ * - afficher partiellement la collection
+ *
+ * - passer par des sous vues, complexifier l'item de listing
  */
+var main = {};
+$(document).ready(function() {
+    (function($, main) {
+        var ListView = Backbone.View.extend({
+            el: $('#mylist'),
 
-var plop;
+            initialize: function(){
+                _.bindAll(this, 'render');
 
+                this.render();
+                return true;
+            },
+
+            render: function(){
+                this.$el.html("<span >load listing</span> <ul> <li>empty</li> </ul>");
+                return this;
+            }
+        });
+
+        main.listView = new ListView();
+    })($, main);
+});
